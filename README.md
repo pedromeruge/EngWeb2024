@@ -7,4 +7,4 @@ Aqui serão armazenados todos os trabalhos da Unidade Curricular de Engenharia W
 
 - **Nome:** Pedro Miguel Meruge Ferreira
 - **ID:** a100709
-<!-- -- **Foto:** ![Fotografia do aluno] (myfoto.jpg) -->
+- **Foto:** ![Fotografia do aluno] (myfoto.jpg)
