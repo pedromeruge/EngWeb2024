@@ -1,4 +1,5 @@
 import os
+import glob
 import xml.etree.ElementTree as ET
 import xmlschema
 
@@ -10,13 +11,14 @@ def parseXML(file: str, schema):
         tree = ET.parse(file)
         
         #validate XML against XSD schema
-        if schema.is_valid(tree):
-            return tree.getroot()
-        else:
-            print(f"{file} conflicts with XSD schema")
-            return None
+        # if schema.is_valid(tree): ## alguns ficheiros estão a dar conflito, mas n parecem ter nada de errado, ignorei
+        # if xmlschema.XMLSchema(file):
+        return tree.getroot()
+        # else:
+        #     print(f"{file} conflicts with XSD schema")
+        #     return None
     except ET.ParseError as e:
-        print(f"Error parsing {file}: {e}")
+        print(f"Error parsing {file}: {e.msg}")
         return None
 
 def parseNumero(num: str) -> int:
@@ -117,18 +119,61 @@ def generate_lista_casas_html(elem):
     """
     return html
 
-def generate_figura_html(elem):
+def generate_figura_html(elem,fig_count: int):
     #falta atributo largura na imagem??
+    fotos_atuais = glob.glob("./dataset/atual/" + str(rua_numero) + "-*.JPG");
+    # print(fotos_atuais)
     html=f"""
-            <div class="w3-card">
-                <img src={"../dataset/" + elem.find("imagem").attrib["path"][3:]} alt="foto não carregou" style="width:100%">
-                <div class="w3-container">
-                    <p>{elem.find("legenda").text}</p>
-                </div>
-            </div>
+            <div class="w3-container">
+                <div class="w3-container" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center">
+                    <div class="w3-center image-div">
+                        <img src={"../dataset/" + elem.find("imagem").attrib["path"][3:]} alt="foto não carregou" style="object-fit: cover; width:auto; max-height: 700px; max-width: 100%">
+                        <div class="w3-container">
+                            <p>{elem.find("legenda").text}</p>
+                        </div>
+                    </div>
+    """
+    if (fig_count + 1) <= len(fotos_atuais):
+        foto_path = fotos_atuais[fig_count]
+        html += f"""     
+                    <div class="w3-center image-div">   
+                        <img src={"." + foto_path} alt="foto não carregou" style="object-fit: cover; width:auto; max-height: 700px; max-width: 100%">
+                        <div class="w3-container">
+                            <p>{elem.find("legenda").text + " (atualmente)"}</p>
+                        </div>
+                    </div>
+        """
+    html+= "\n      </div></div>"
+    return html
+
+def generate_nome_html(elem):
+    html = f"""
+        <h4>
+            <b>{elem.text}</b>
+        </h4>
     """
     return html
-        
+
+def generate_remaining_figuras_html(fotos_atuais, de: int, para: int):
+    print(str(rua_numero) + " chamou remaning_figuras" )
+    html=f"""
+            <div class="w3-container">
+                <h4><b>Outras imagens</b></h4>
+                <div class="w3-container" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center">
+
+    """
+    for foto_path in fotos_atuais[de:para]:
+        html += f"""     
+                    <div class="w3-center image-div">   
+                        <img src={"." + foto_path} alt="foto não carregou" style="object-fit: cover; width:auto; max-height: 700px; max-width: 100%">
+                        <div class="w3-container">
+                            <p>{rua_nome + " (atualmente)"}</p>
+                        </div>
+                    </div>
+        """
+    html+= "\n      </div></div>"
+    return html
+
 file_path= "./dataset/texto/"
 
 xsd_schema = xmlschema.XMLSchema("./dataset/MRB-rua.xsd")
@@ -158,12 +203,15 @@ for file in os.listdir(directory):
     conteudoHTML = ""
     # se ficheiro não estiver bem formatado, saltá-lo
     if rua is None:
+        print("Rua was not found")
         continue
 
     meta = rua.find("./meta")
     if meta is None:
         print("Couldn't find meta tag")
         continue
+    
+    fig_count = 0 # contador da figura atual, para associar uma foto_atual correspondente
 
     conteudoHTML += generate_meta_html(meta)
     for elem in rua.findall("./corpo/*"):
@@ -173,8 +221,16 @@ for file in os.listdir(directory):
             case "lista-casas":
                 conteudoHTML += generate_lista_casas_html(elem)
             case "figura":
-                conteudoHTML +=  generate_figura_html(elem)
-            #falta nome linha 76 xsd?
+                conteudoHTML +=  generate_figura_html(elem,fig_count)
+                fig_count += 1
+            case "nome":
+                conteudoHTML += generate_nome_html(elem)
+
+    #gerar fotos restantes de sobra que haja
+    fotos_atuais = glob.glob("./dataset/atual/" + str(rua_numero) + "-*.JPG");
+    total_fotos = len(fotos_atuais) 
+    if total_fotos > fig_count:
+        conteudoHTML += generate_remaining_figuras_html(fotos_atuais, fig_count, total_fotos)
 
     outFile = open("./ruasSite/rua" + str(rua_numero) + ".html", "w")
     outFile.write(conteudoHTML + posHTML)

@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import os
 
 # parse XML file into tree, using the ET library
-#parseXML devolve a root da árvore criada, aka rua
+# parseXML devolve a root da árvore criada, aka rua
 def parseXML(file: str):
 	tree = ET.parse(file)
 	root = tree.getroot()

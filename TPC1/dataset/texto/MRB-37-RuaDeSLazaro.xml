@@ -31,12 +31,15 @@
                 <número>1</número>
                 <enfiteuta>Lopo de Barros e Almeida</enfiteuta>
                 <foro>1200 reis, 10 alqueires de trigo, 16 de pão meado e 2 capões</foro>
-                <desc><para>O enfiteuta era filho de <entidade tipo="pessoa">Franciso de Barros de Almeida</entidade> e de sua mulher,
-                <entidade tipo="pessoa">D.Isabel Cecília Pereira de Carvalho</entidade>.</para>
-                <para>A casa confronta, do norte, com a cangosta que vai da <lugar>Rua das Águas</lugar> para <lugar>Nossa Senhora a Branca</lugar>.
-                O emprazamento mais antigo que se conhece é de <data>1451</data>. Pertencem a este prazo os nºs 2 a 23 e, na 
-                <lugar>Rua da Ponte de Guimarães</lugar>, os nºs 1 a 19 e 75 a 88, bem como a leira de hortas na <lugar>freguesia de S. Pedro de Maximinos</lugar>. Esta casa
-                    é cabeça de prazo denominado <lugar>"Casal ou quinta de Portas"</lugar>.</para>
+                <desc>
+                    <para>O enfiteuta era filho de <entidade tipo="pessoa">Franciso de Barros de Almeida</entidade> e de sua mulher,
+                        <entidade tipo="pessoa">D.Isabel Cecília Pereira de Carvalho</entidade>.
+                    </para>
+                    <para>A casa confronta, do norte, com a cangosta que vai da <lugar>Rua das Águas</lugar> para <lugar>Nossa Senhora a Branca</lugar>.
+                        O emprazamento mais antigo que se conhece é de <data>1451</data>. Pertencem a este prazo os nºs 2 a 23 e, na 
+                        <lugar>Rua da Ponte de Guimarães</lugar>, os nºs 1 a 19 e 75 a 88, bem como a leira de hortas na <lugar>freguesia de S. Pedro de Maximinos</lugar>. Esta casa
+                            é cabeça de prazo denominado <lugar>"Casal ou quinta de Portas"</lugar>.
+                    </para>
                 </desc>
             </casa>
             <casa>
