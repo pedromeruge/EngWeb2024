@@ -24,14 +24,14 @@ preHTML = """
 	</head>
     <body>
 
-            <div class="w3-card-4">
+        <div class="w3-card-4">
 
-                <header class="w3-container w3-purple">
-                    <h3>Lista de Cidades</h3>
-                </header>
+            <header class="w3-container w3-green">
+                <h3>Lista de Cidades</h3>
+            </header>
 
-                <div class="w3-container">
-                    <ul class="w3-ul w3-card-4" style="width:50%">
+            <div class="w3-container">
+                <ul class="w3-ul" style="width:50%">
 """	
 
 posHTML = """
@@ -51,7 +51,7 @@ conteudoHTML = ""
 for cidade in bd:
 	conteudoHTML += f"""
 					<li>
-						<a href="http://localhost/7777/{cidade["id"]}>{cidade["nome"]} ({cidade["distrito"]})</a>
+						<a href="http://localhost:7777/{cidade["id"]}">{cidade["nome"]} ({cidade["distrito"]})</a>
 					</li>
 """
 	

@@ -7,7 +7,7 @@
 
 ## Resumo
 
-Neste trabalho, utilizou-se o material fornecido pelo docente, ficheiros XML com a informação de 60 ruas de Braga, fotos atuais (associadas a uma determinada vista), e fotos dos esquiços desenhados no séc. XVIII das mesmas ruas, para produzir um website onde se pode consultar e navegar nesta estrutura.
+Neste trabalho utilizou-se o material fornecido pelo docente, ficheiros XML com a informação de 60 ruas de Braga, fotos atuais (associadas a uma determinada vista), e fotos dos esquiços desenhados no séc. XVIII das mesmas ruas, para produzir um website onde se pode consultar e navegar nesta estrutura.
 
 O site apresenta uma página principal com a lista de ruas ordenadas alfabeticamente.
 
