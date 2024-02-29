@@ -3,7 +3,7 @@ var fs = require('fs')
 var url = require('url')
 
 http.createServer(function(req,res) {
-    var regex = /^\/(c\d*)$/ // o ^ indica o início da string, o \/ representa o carctér "/" espaced, porque "/" é um caractér especial
+    var regex = /^\/(c\d+)$/ // o ^ indica o início da string, o \/ representa o carctér "/" espaced, porque "/" é um caractér especial
     var q = url.parse(req.url,true)
     var matchResult = q.pathname.match(regex);
 
