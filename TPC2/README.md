@@ -7,7 +7,7 @@
 
 ## Resumo
 
-Neste trabalho utilizou-se o material fornecido pelo docente, ficheiro JSON com informações de 100 cidades de Portugal e de ligações entre elas, a fim de construir para suportar um serviço de entrega de ficheiros. Recebendo um pedido http, o serviço deve responder com um dos seguintes tipos de ficheiro:
+Neste trabalho utilizou-se o material fornecido pelo docente, ficheiro JSON com informações de 100 cidades de Portugal e de ligações entre elas, a fim de construir um serviço de entrega de ficheiros. Recebendo um pedido http, o serviço deve responder com um dos seguintes tipos de ficheiro:
 - Uma página [**inicial**](cidadesSite/index.html) html de índice, que lista as cidades presentes no dataset, ordenadas por ordem alfabética
 - A página de uma cidade (por exemplo [**Braga**](cidadesSite/c25.html)), que apresenta informações da mesma: nome, distrito, descrição e população. Apresenta ainda uma lista de ligações desta a outras cidades e a respetiva distância em km
 - O ficheiro [**w3.css**](cidadesSite/w3.css) necessários para a formatação correta dos elementos da página.

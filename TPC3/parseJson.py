@@ -19,11 +19,13 @@ def calc_list_filmes(bd, generos_dic, atores_dic):
     for item in bd:
         currCast = item.get('cast',[])
         for index in range(0,len(currCast)):
-            item['cast'][index] = atores_dic [item['cast'][index]] ['id'] # substituir nome de ator pelo seu id atribuido
+            atorEntry = atores_dic [item['cast'][index]]
+            item['cast'][index] = (atorEntry['id'],atorEntry['nomeAtor']) # substituir nome de ator pelo seu id atribuido
 
         currGen = item.get('genres',[])
         for index in range(0,len(currGen)):
-            item['genres'][index] = generos_dic [item['genres'][index]] ['id'] # substituir nome de genero pelo seu id atribuído
+            generoEntry = generos_dic [item['genres'][index]]
+            item['genres'][index] = (generoEntry['id'],generoEntry['nomeGen']) # substituir nome de genero pelo seu id atribuído
     
         filmesList.append(item)
     return filmesList
@@ -36,10 +38,10 @@ def calc_dic_generos(bd):
         if(len(item.get('genres',[])) > 0): # a ultima linha n tem genres!
             for genre in item['genres']:
                 if (genre in generosDict):
-                    generosDict[genre]['idFilmes'].append(item['id'])
+                    generosDict[genre]['idFilmes'].append((item['id'],item['title']))
                 else:
                     counter+= 1
-                    generosDict[genre] = {'id':counter,'nomeGen':genre,'idFilmes':[ item['id']]}
+                    generosDict[genre] = {'id':counter,'nomeGen':genre,'idFilmes':[(item['id'],item['title'])]}
     return generosDict
 
 # devolve dicionario de nome de ator para objeto ator (que é em si um dicionário)
@@ -50,10 +52,10 @@ def calc_dic_atores(bd):
         if(len(item['cast']) > 0):
             for ator in item['cast']:
                 if (ator in atoresDict):
-                    atoresDict[ator]['idFilmes'].append(item['id'])
+                    atoresDict[ator]['idFilmes'].append((item['id'],item['title']))
                 else:
                     counter+= 1
-                    atoresDict[ator] = {'id':counter,'nomeAtor':ator,'idFilmes':[item['id']]}
+                    atoresDict[ator] = {'id':counter,'nomeAtor':ator,'idFilmes':[(item['id'],item['title'])]}
     return atoresDict
 
 def main():

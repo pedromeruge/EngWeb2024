@@ -1,5 +1,17 @@
-thead th {
-    background-color: #87CEEB;
+.header-red {
     position: sticky;
-    top: 0;
+    top: 0px;
+    background-color: #ffdddd;
+  }
+
+.header-blue {
+    position: sticky;
+    top: 0px;
+    background-color: #87CEEB;
+  }
+
+  .header-green {
+    position: sticky;
+    top: 0px;
+    background-color: #ddffdd
   }
