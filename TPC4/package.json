@@ -1,0 +1,15 @@
+{
+  "name": "gcompositores",
+  "version": "1.0.0",
+  "description": "Gestao de compositores e periodos CRUD",
+  "main": "compositores_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node compositores_server.js"
+  },
+  "author": "a100709",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7"
+  }
+}
