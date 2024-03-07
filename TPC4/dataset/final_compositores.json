@@ -1847,116 +1847,6 @@
         "1",
         "Barroco"
       ]
-    },
-    {
-      "id": "C1201",
-      "nome": "Asfas",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgasd"
-    },
-    {
-      "id": "C1239",
-      "nome": "Pgasf",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "gasda"
-    },
-    {
-      "id": "C12423",
-      "nome": "asfasf",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgasg"
-    },
-    {
-      "id": "C12423",
-      "nome": "asfasf",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgasg"
-    },
-    {
-      "id": "C1252",
-      "nome": "asgasg",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgasg"
-    },
-    {
-      "id": "C15123",
-      "nome": "asgasg",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgasd"
-    },
-    {
-      "id": "C15123",
-      "nome": "asguasg",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "agssd"
-    },
-    {
-      "id": "C1512",
-      "nome": "aagas",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "asgsdas"
-    },
-    {
-      "id": "C123512",
-      "nome": "asgasd",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "Gasdasdas"
-    },
-    {
-      "id": "C1212",
-      "nome": "aasfasfas",
-      "datanasc": "2003-10-18",
-      "dataobito": "2003-10-18",
-      "periodo": [
-        "4",
-        "NUNO"
-      ],
-      "bio": "gasdasd"
     }
   ],
   "periodos": [
@@ -2321,6 +2211,10 @@
         [
           "C104",
           "Zipoli, Domenico"
+        ],
+        [
+          "C1235123",
+          "astasdas"
         ]
       ]
     },
@@ -2652,20 +2546,7 @@
       "id": "3",
       "nome": "Modernismo",
       "data": "Séc.XX até agora",
-      "descricao": "Conjunto de tendências musicais que surgiram durante o período da primeira metade do século XX (conhecido como modernismo), após o romantismo, e que possuem caráter quase exclusivamente experimental. Assim como o classicismo e o barroco valorizavam a estética e o romantismo valorizava a expressão de sentimentos através da tonalidade, o Modernismo valorizava especialmente a inovação e as percepções sensoriais\\abstratas.",
-      "compositores": []
-    },
-    {
-      "id": "4",
-      "nome": "NUNO",
-      "data": "goansgasd",
-      "descricao": "qeiodnawdgadf",
-      "compositores": [
-        [
-          "C1212",
-          "aasfasfas"
-        ]
-      ]
+      "descricao": "Conjunto de tendências musicais que surgiram durante o período da primeira metade do século XX (conhecido como modernismo), após o romantismo, e que possuem caráter quase exclusivamente experimental. Assim como o classicismo e o barroco valorizavam a estética e o romantismo valorizava a expressão de sentimentos através da tonalidade, o Modernismo valorizava especialmente a inovação e as percepções sensoriais\\abstratas."
     }
   ]
 }

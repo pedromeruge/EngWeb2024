@@ -62,7 +62,6 @@ exports.periodosListPage = function(plist, d){
 exports.periodoFormPage = function(d){
     // NOTA: 
     //  nao sendo referido o url de destino de um formToJSON, os dados são enviados para o URL da pag que contém o form, aka periodos_server.js acho?
-    console.log("Entrei no templates form periodo")
     var pagHTML = `
     <!DOCTYPE html>
     <html>

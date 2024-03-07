@@ -101,7 +101,6 @@ exports.compositorFormPage = function(periodos,d){
                         <select class="w3-select w3-border" name="periodo">
             `
     for (let i=0; i < periodos.length; i++) {
-        console.log(JSON.stringify([periodos[i]["id"], periodos[i]["nome"]]))
         pagHTML += `
                             <option value=${JSON.stringify([periodos[i]["id"], periodos[i]["nome"]])}>${periodos[i]["nome"]}</option>
         `

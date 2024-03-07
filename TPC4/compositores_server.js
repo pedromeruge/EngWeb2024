@@ -99,11 +99,41 @@ var compositoresServer = http.createServer((req, res) => {
                     let idCompositor = pieces[pieces.length - 1]
 
                     axios.delete('http://localhost:3000/compositores/' + idCompositor)
-                    .then( resposta => {
-                        res.writeHead(200, {'Content-Type' : 'text/html'})
-                        res.end(templates.compositorPage(resposta.data, d))
+                    .then( respostaCompositores => {
+                        var compositor = respostaCompositores.data
+                        axios.get('http://localhost:3000/periodos')
+                            .then(respostaPeriodos => {
+
+                                const todosPeriodos = respostaPeriodos.data;
+                                const periodoToUpdate = todosPeriodos.find( p => p.id === compositor.periodo[0])
+
+                                if (periodoToUpdate) {
+                                    periodoToUpdate.compositores = periodoToUpdate.compositores.filter( c => c[0] !== compositor.id)
+
+                                    axios.put(`http://localhost:3000/periodos/${periodoToUpdate.id}`,periodoToUpdate)
+                                    . then(() => {
+                                        res.writeHead(201, {'Content-Type' : 'text/html'})
+                                        res.end(templates.compositorPage(compositor, d))
+                                    })
+                                    .catch(error => {
+                                        res.writeHead(521, { 'Content-Type': 'text/html' });
+                                        res.end(templates.compositoresErrorPage("Error updating periodo in the database", d));
+                                    });
+                                } else {
+                                    res.writeHead(404, { 'Content-Type': 'text/html' });
+                                    res.end(templates.compositoresErrorPage("Periodo not found in the database", d));
+                                }
+                            })
+                            .catch(erro => {
+                                res.writeHead(522, {'Content-Type' : 'text/html'})
+                                res.end(templates.compositoresErrorPage(erro, d))
+                            })
+                        .catch( erro => {
+                            res.writeHead(523, {'Content-Type' : 'text/html'})
+                            res.end(templates.compositoresErrorPage(erro, d))
+                        })
                     }).catch( erro => {
-                        res.writeHead(521, {'Content-Type' : 'text/html'})
+                        res.writeHead(524, {'Content-Type' : 'text/html'})
                         res.end(templates.compositoresErrorPage(erro, d))
                     })
                 }
@@ -134,7 +164,6 @@ var compositoresServer = http.createServer((req, res) => {
                 
                 // GET /periodos/register --------------------------------------------------------------------
                 else if(req.url == '/periodos/register'){
-                    console.log("entrei no get register de periodos")
                     res.writeHead(200, {'Content-Type' : 'text/html'})
                     res.end(templates2.periodoFormPage(d))
                 }
@@ -161,14 +190,24 @@ var compositoresServer = http.createServer((req, res) => {
                     let pieces = req.url.split('/')
 
                     let idPeriodo = pieces[pieces.length - 1]
-
-                    axios.delete('http://localhost:3000/periodos/' + idPeriodo)
-                    .then( resposta => {
-                        res.writeHead(200, {'Content-Type' : 'text/html'})
-                        res.end(templates2.periodoPage(resposta.data, d))
+                    axios.get('http://localhost:3000/periodos/' + idPeriodo)
+                    .then( respostaPeriodo => {
+                        if (respostaPeriodo.data.compositores.length === 0) {
+                            axios.delete('http://localhost:3000/periodos/' + idPeriodo)
+                            .then( respostaDelete => {
+                                res.writeHead(200, {'Content-Type' : 'text/html'})
+                                res.end(templates2.periodoPage(respostaDelete.data, d))
+                            }).catch( erro => {
+                                res.writeHead(521, {'Content-Type' : 'text/html'})
+                                res.end(templates2.periodosErrorPage(erro, d))
+                            })
+                        } else {
+                            res.writeHead(521, {'Content-Type' : 'text/html'})
+                            res.end(templates2.periodosErrorPage("Remover todos os compositores do periodo, para poder realizar esta operação", d))
+                        }
                     }).catch( erro => {
                         res.writeHead(521, {'Content-Type' : 'text/html'})
-                        res.end(templates2.periodosErrorPage(erro, d))
+                        res.end(templates2.periodosErrorPage("Erro a encontrar o periodo na database", d))
                     })
                 }
 
@@ -258,9 +297,10 @@ var compositoresServer = http.createServer((req, res) => {
                 }
                 // POST /periodos/registo --------------------------------------------------------------------
                 else if(req.url == '/periodos/register'){
-                    console.log("entrei no post register")
                     collectRequestBodyData(req, result => {
                         if(result){
+                            result.compositores = []
+                            console.log("result" + result.data)
                             axios.post('http://localhost:3000/periodos', result)
                             .then( resposta => {
                                 res.writeHead(201, {'Content-Type' : 'text/html'})
