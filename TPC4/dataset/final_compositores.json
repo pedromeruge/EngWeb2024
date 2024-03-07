@@ -1847,6 +1847,61 @@
         "1",
         "Barroco"
       ]
+    },
+    {
+      "id": "C1000",
+      "nome": "Gustav Mahler",
+      "dataNasc": "1860-07-07",
+      "dataObito": "1911-05-18",
+      "periodo": [
+        "3",
+        "Modernismo"
+      ],
+      "bio": "Gustav Mahler (Kalischt, Boêmia - Império Austríaco - atualmente República Checa, 7 de julho de 1860 — Viena, 18 de maio de 1911) foi um regente e compositor checo-austríaco de origem judaica. Atualmente, Mahler é visto como um dos maiores compositores do período romântico, responsável por estabelecer uma ponte entre a música do século XIX com a do período moderno e por suas grandes sinfonias e ciclo de canções sinfônicas, como, por exemplo, Das Lied von der Erde (A Canção da Terra)"
+    },
+    {
+      "id": "C1001",
+      "nome": "Claude Debussy",
+      "dataNasc": "1862-08-22",
+      "dataObito": "1918-03-25",
+      "periodo": [
+        "3",
+        "Modernismo"
+      ],
+      "bio": "Claude-Achille Debussy (Saint-Germain-en-Laye, 22 de agosto de 1862[1] — Paris, 25 de março de 1918) foi um músico e compositor francês. É visto por vezes como o primeiro compositor impressionista, embora tenha rejeitado vigorosamente o termo. Esteve entre os compositores mais influentes do final do século XIX e início do século XX. A música inovadora de Debussy agiu como um fenómeno catalisador de diversos movimentos musicais em outros países."
+    },
+    {
+      "id": "C1002",
+      "nome": "Richard Strauss",
+      "dataNasc": "1864-06-11",
+      "dataObito": "1949-09-08",
+      "periodo": [
+        "3",
+        "Modernismo"
+      ],
+      "bio": "Richard Georg Strauss (Munique, 11 de junho de 1864 — Garmisch-Partenkirchen, 8 de setembro de 1949) foi um compositor e maestro alemão. É considerado como um dos mais destacados representantes da música entre o final da Era Romântica e a primeira metade do século XX."
+    },
+    {
+      "id": "C1003",
+      "nome": "Jean Sibelius",
+      "dataNasc": "1865-12-08",
+      "dataObito": "1957-09-20",
+      "periodo": [
+        "3",
+        "Modernismo"
+      ],
+      "bio": "Johan Julius Christian Sibelius, conhecido como Jean Sibelius (Hämeenlinna, 8 de dezembro de 1865 — Järvenpää, 20 de setembro de 1957), foi um compositor finlandês de música erudita, e um dos mais populares compositores do fim do século XIX e início do XX. Sua música também teve importante papel na formação da identidade nacional finlandesa."
+    },
+    {
+      "id": "C1004",
+      "nome": "Erik Satie",
+      "dataNasc": "1866-05-17",
+      "dataObito": "1925-07-01",
+      "periodo": [
+        "3",
+        "Modernismo"
+      ],
+      "bio": "Éric Alfred Leslie Satie, assinando como Erik Satie a partir de 1884, (Honfleur, 17 de Maio de 1866 — Paris, 1 de Julho de 1925) foi um compositor e pianista francês.[1] Relevante no cenário de vanguarda parisiense do começo do século XX, foi o precursor de movimentos artísticos como minimalismo, música repetitiva e teatro do absurdo."
     }
   ],
   "periodos": [
@@ -2545,8 +2600,30 @@
     {
       "id": "3",
       "nome": "Modernismo",
-      "data": "Séc.XX até agora",
-      "descricao": "Conjunto de tendências musicais que surgiram durante o período da primeira metade do século XX (conhecido como modernismo), após o romantismo, e que possuem caráter quase exclusivamente experimental. Assim como o classicismo e o barroco valorizavam a estética e o romantismo valorizava a expressão de sentimentos através da tonalidade, o Modernismo valorizava especialmente a inovação e as percepções sensoriais\\abstratas."
+      "data": "Primeira metade do séc.XX",
+      "descricao": "Conjunto de tendências musicais que surgiram durante o período da primeira metade do século XX (conhecido como modernismo), após o romantismo, e que possuem caráter quase exclusivamente experimental. Assim como o classicismo e o barroco valorizavam a estética e o romantismo valorizava a expressão de sentimentos através da tonalidade, o Modernismo valorizava especialmente a inovação e as percepções sensoriais\\abstratas.",
+      "compositores": [
+        [
+          "C1000",
+          "Gustav Mahler"
+        ],
+        [
+          "C1001",
+          "Claude Debussy"
+        ],
+        [
+          "C1002",
+          "Richard Strauss"
+        ],
+        [
+          "C1003",
+          "Jean Sibelius"
+        ],
+        [
+          "C1004",
+          "Erik Satie"
+        ]
+      ]
     }
   ]
 }

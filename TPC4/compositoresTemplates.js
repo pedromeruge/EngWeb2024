@@ -90,9 +90,9 @@ exports.compositorFormPage = function(periodos,d){
                         <label>Nome</label>
                         <input class="w3-input w3-round" type="text" name="nome"/>
                         <label>Data de nascimento</label>
-                        <input class="w3-input w3-round" type="date" name="datanasc"/>
+                        <input class="w3-input w3-round" type="date" name="dataNasc"/>
                         <label>Data de óbito</label>
-                        <input class="w3-input w3-round" type="date" name="dataobito"/>
+                        <input class="w3-input w3-round" type="date" name="dataObito"/>
                     </fieldset>
 
                     <fieldset>
@@ -151,11 +151,11 @@ exports.compositorFormEditPage = function(periodos, c, d){
                         <label>Id</label>
                         <input class="w3-input w3-round" type="text" name="id" readonly value="${c.id}"/>
                         <label>Nome</label>
-                        <input class="w3-input w3-round" type="text" name="nome" value="${c.nome}"/>
+                        <input class="w3-input w3-round" type="text" name="nome" readonly value="${c.nome}"/>
                         <label>Data de nascimento</label>
-                        <input class="w3-input w3-round" type="date" name="datanasc" value="${c.dataNasc}"/>
+                        <input class="w3-input w3-round" type="date" name="dataNasc" value="${c.dataNasc}"/>
                         <label>Data de óbito</label>
-                        <input class="w3-input w3-round" type="date" name="dataobito" value="${c.dataObito}"/>
+                        <input class="w3-input w3-round" type="date" name="dataObito" value="${c.dataObito}"/>
                     </fieldset>
                     <fieldset>
                         <legend>Periodo do compositor</legend>
@@ -165,22 +165,23 @@ exports.compositorFormEditPage = function(periodos, c, d){
     for (let i=0; i < periodos.length; i++) {
         if (c.periodo[0] == periodos[i]["id"]) {
             pagHTML += `
-                                <option value="${periodos[i]["nome"]}" selected>${periodos[i]["nome"]}</option>
+                                <option value=${JSON.stringify([periodos[i]["id"], periodos[i]["nome"]])} selected>${periodos[i]["nome"]}</option>
             `
         } else {
             pagHTML += `
-                                <option value="${periodos[i]["nome"]}">${periodos[i]["nome"]}</option>
+                                <option value=${JSON.stringify([periodos[i]["id"], periodos[i]["nome"]])}>${periodos[i]["nome"]}</option>
             `
         }
     }
 
     pagHTML +=`
                         </select>
+                        <input type="hidden" name="periodoInicial" value=${JSON.stringify(c.periodo)}>
                     </fieldset> 
                     <fieldset>
                         <legend>Vida</legend>
                         <label>Biografia</label>
-                        <input class="w3-input w3-round" type="text" name="bio" maxlength = "1000" readonly value="${c.bio}"/>
+                        <input class="w3-input w3-round" type="text" name="bio" maxlength = "1000" value="${c.bio}"/>
                     </fieldset> 
                     <br/>
                     <button class="w3-btn w3-purple w3-section" type="submit">Confirmar</button>
@@ -213,8 +214,8 @@ exports.compositorPage = function(compositor, d ){
             <div class="w3-container">
                 <p><b>Id: </b> ${compositor.id}</p>
                 <p><b>Nome: </b> ${compositor.nome}</p>
-                <p><b>Data de nascimento: </b>${compositor.datanasc}</p>
-                <p><b>Data de óbito: </b>${compositor.dataobito}</p>
+                <p><b>Data de nascimento: </b>${compositor.dataNasc}</p>
+                <p><b>Data de óbito: </b>${compositor.dataObito}</p>
                 <p><b>Período: </b>                          
                     <a href="/periodos/${compositor.periodo[0]}">
                         ${compositor.periodo[1]}

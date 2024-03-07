@@ -275,14 +275,53 @@ var compositoresServer = http.createServer((req, res) => {
                     collectRequestBodyData(req, result => {
                         if(result){
                             let pieces = req.url.split('/')
-
                             let idCompositor = pieces[pieces.length - 1]
 
+                            const novoPeriodoTuple = JSON.parse(result.periodo)
+                            result.periodo = novoPeriodoTuple;
+
+                            const periodoPrevioTuple = JSON.parse(result.periodoInicial) // aceder a periodo antes da alteração
+                            delete result.periodoInicial
+
                             axios.put('http://localhost:3000/compositores/' + idCompositor, result)
-                            .then( resposta => {
-                                
-                                res.writeHead(201, {'Content-Type' : 'text/html'})
-                                res.end(templates.compositorPage(resposta.data, d))
+                            .then( respostaCompositores => {
+
+                                if (result.periodo != result.periodoInicial) { // se utilizador mudou de período, atualizar as respetivas listas dos períodos
+                                    
+                                    axios.get('http://localhost:3000/periodos')
+                                    .then(respostaPeriodos => {
+
+                                        const todosPeriodos = respostaPeriodos.data;
+                                        const novoPeriodo = todosPeriodos.find( p => p.id === novoPeriodoTuple[0])
+                                        const  previoPeriodo = todosPeriodos.find( p => p.id === periodoPrevioTuple[0])
+
+                                        if (novoPeriodo && previoPeriodo) {
+                                            novoPeriodo.compositores.push([result.id,result.nome]) // acrescentar novo compositor à lista de compositores desse período
+                                            previoPeriodo.compositores = previoPeriodo.compositores.filter( c => c[0] !== idCompositor)
+
+                                            axios.put(`http://localhost:3000/periodos/${novoPeriodo.id}`,novoPeriodo) // atualizar periodo antigo
+                                            . then(() => {
+                                                axios.put(`http://localhost:3000/periodos/${previoPeriodo.id}`,previoPeriodo) //atualizar periodo novo
+                                                    . then(() => {
+                                                        res.writeHead(201, {'Content-Type' : 'text/html'})
+                                                        res.end(templates.compositorPage(respostaCompositores.data, d))
+                                                
+                                                    })
+                                                    .catch(error => {
+                                                        res.writeHead(520, { 'Content-Type': 'text/html' });
+                                                        res.end(templates.compositoresErrorPage("Error updating prev periodo in the database", d));
+                                                    });                                  
+                                            })
+                                            .catch(error => {
+                                                res.writeHead(520, { 'Content-Type': 'text/html' });
+                                                res.end(templates.compositoresErrorPage("Error updating novo periodo in the database", d));
+                                            })
+                                        } else {
+                                            res.writeHead(404, { 'Content-Type': 'text/html' });
+                                            res.end(templates.compositoresErrorPage("Periodo not found in the database", d));
+                                        }
+                                    })
+                                }
                             })
                             .catch( erro => {
                                 res.writeHead(520, {'Content-Type' : 'text/html'})
@@ -300,7 +339,6 @@ var compositoresServer = http.createServer((req, res) => {
                     collectRequestBodyData(req, result => {
                         if(result){
                             result.compositores = []
-                            console.log("result" + result.data)
                             axios.post('http://localhost:3000/periodos', result)
                             .then( resposta => {
                                 res.writeHead(201, {'Content-Type' : 'text/html'})
@@ -321,12 +359,13 @@ var compositoresServer = http.createServer((req, res) => {
                 // POST /periodos/edit/:id --------------------------------------------------------------------
                 else if(/\/periodos\/edit\/\d+$/.test(req.url)){
                     collectRequestBodyData(req, result => {
+                        console.log("Entrei no POST edit periodos")
                         if(result){
                             let pieces = req.url.split('/')
 
                             let idPeriodo = pieces[pieces.length - 1]
-
-                            axios.put('http://localhost:3000/periodos/' + idPeriodo, result)
+                            console.log("Entrei no POST edit periodos 2")
+                            axios.patch('http://localhost:3000/periodos/' + idPeriodo, result)
                             .then( resposta => {
                                 res.writeHead(201, {'Content-Type' : 'text/html'})
                                 res.end(templates2.periodoPage(resposta.data, d))
