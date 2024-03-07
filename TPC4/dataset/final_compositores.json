@@ -1847,9 +1847,118 @@
         "1",
         "Barroco"
       ]
+    },
+    {
+      "id": "C1201",
+      "nome": "Asfas",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgasd"
+    },
+    {
+      "id": "C1239",
+      "nome": "Pgasf",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "gasda"
+    },
+    {
+      "id": "C12423",
+      "nome": "asfasf",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgasg"
+    },
+    {
+      "id": "C12423",
+      "nome": "asfasf",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgasg"
+    },
+    {
+      "id": "C1252",
+      "nome": "asgasg",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgasg"
+    },
+    {
+      "id": "C15123",
+      "nome": "asgasg",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgasd"
+    },
+    {
+      "id": "C15123",
+      "nome": "asguasg",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "agssd"
+    },
+    {
+      "id": "C1512",
+      "nome": "aagas",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "asgsdas"
+    },
+    {
+      "id": "C123512",
+      "nome": "asgasd",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "Gasdasdas"
+    },
+    {
+      "id": "C1212",
+      "nome": "aasfasfas",
+      "datanasc": "2003-10-18",
+      "dataobito": "2003-10-18",
+      "periodo": [
+        "4",
+        "NUNO"
+      ],
+      "bio": "gasdasd"
     }
   ],
-  
   "periodos": [
     {
       "id": "1",
@@ -2551,7 +2660,12 @@
       "nome": "NUNO",
       "data": "goansgasd",
       "descricao": "qeiodnawdgadf",
-      "compositores": ""
+      "compositores": [
+        [
+          "C1212",
+          "aasfasfas"
+        ]
+      ]
     }
   ]
 }
