@@ -30,7 +30,7 @@ O serviço suporta os seguintes pedidos:
 Para além do script em python inicial, existem ainda os scripts:
 - [**compositores_server.js**](compositores_server.js): cria o servidor e redireciona os pedidos para o seu processamento correto, distinguindo se mensagem HTTP tem método GET ou POST.
 - [**compositoresTemplates.js**](compositoresTemplates.js) e [**periodosTemplates.js**](periodosTemplates.js) geram dinamicamente as páginas HTML para cada tipo de pedido.
-- [**static.js**](static.js) é um ficheiro disponibilizado pelo docente que suporta pedidos para objetos estáticos, como o favicon.png e ficheiros de css.
+- [**static.js**](static.js) é um ficheiro disponibilizado pelo docente que processa pedidos para objetos estáticos, como o favicon.png e ficheiros de css.
 
 Nas diferentes páginas do serviço, clicando num compositor ou género, o utilizador é redirecionado para a sua página específica. É possível editar ou remover dados de compositores e géneros (inclusive trocar o período de um compositor). Existe uma lista de todos os períodos e de todos os compositores. A página de cada período específico enumera todos os compositores desse período.
 

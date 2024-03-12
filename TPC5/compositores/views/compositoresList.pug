@@ -1,0 +1,30 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h1 Lista de compositores
+                a.add-button.w3-btn.w3-round.w3-red(href="/compositores/register") +   
+        
+        .w3-container
+            table.w3-table-all
+                tr
+                    th Id
+                    th Nome
+                    th Período
+                    th Ações
+                each compositor in data
+                    tr
+                        td= compositor.id
+                        td 
+                            a(href= "/compositores/" + compositor.id) #{compositor.nome}
+                        td 
+                            a(href="/periodos/" + compositor.periodo[0]) #{compositor.periodo[1]}
+                        td 
+                            //- para adicionar "[]"", usar | -> trata texto a seguir como plain text, sem dar significado usual do pug ao caractér
+                            |[
+                            a(href="/compositores/edit/" + compositor.id) Edit][
+                            a(href="/compositores/delete/" + compositor.id) Delete]
+
+        footer.w3-container.w3-blue
+            address Gerado por EngWeb2024 em #{date}

@@ -364,7 +364,6 @@ var compositoresServer = http.createServer((req, res) => {
                             let pieces = req.url.split('/')
 
                             let idPeriodo = pieces[pieces.length - 1]
-                            console.log("Entrei no POST edit periodos 2")
                             axios.patch('http://localhost:3000/periodos/' + idPeriodo, result)
                             .then( resposta => {
                                 res.writeHead(201, {'Content-Type' : 'text/html'})
