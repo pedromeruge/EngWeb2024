@@ -7,7 +7,7 @@
 
 ## Resumo
 
-Neste trabalho reutilizei o dataset já processado para o TPC4, relativo a compositores e períodos. Tal como no TPC3 e TPC4, por simplicidade, incluo junto dos ids de um compositor/periodo o respetivo nome do compositor/período, nas várias entradas dos catálogos.
+Neste trabalho reutilizei o dataset já processado para o TPC4, relativo a compositores e períodos. Tal como no TPC3 e TPC4, por simplicidade, incluo junto dos ids de um compositor/periodo o respetivo nome do compositor/período, nas várias entradas dos catálogos. Pretende-se desenvolver um serviço idêntico de entrega de ficheiros sobre compositores e períodos
  
 O serviço suporta os seguintes pedidos, de forma idêntica ao TPC4:
 - GET /compositores
