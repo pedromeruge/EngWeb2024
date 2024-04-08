@@ -1,0 +1,5 @@
+#NOTA:
+- Como dataset vem em um objeto pessoas, remover a primeira chaveta e o nome, e deixar só a lista, e importar no mongoDB com --jsonArray
+- faltam identificadores únicos em cada entrada, soluções:
+ > monogDB gera os seus próprios, mas vêm em objectId, tem de extrair com objeto.valueOf()
+ > usar BI como identificador único, mas cuidado que existe simultaneamente BI e CC dependendo das entradas. Tem de se corrigir isso
