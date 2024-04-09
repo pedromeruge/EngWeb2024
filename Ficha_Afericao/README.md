@@ -17,10 +17,10 @@ A API foi definida na pasta [pessoasAPI](pessoasAPI/) e suporta as rotas:
 - PUT /id_pessoa
 - DELETE /id_pessoa
 
-De seguida, desenvolvi o script [loadExtraDBs.py](requestScript/loadExtraDBs.py)que recebe como parâmetro um ficheiro .json e faz pedidos à API criada para carregar a informação para a base de dados.
+De seguida, desenvolvi o script [loadExtraDBs.py](requestsScript/loadExtraDBs.py) que recebe como parâmetro um ficheiro .json e faz pedidos à API criada para carregar a informação para a base de dados.
 
-De seguida, construi um segundo servidor que constrói páginas HTML com a informação das pessoas e possui elementos para executar operações CRUD sobre os dados.
-O serviço suporta os mesmos pedidos:
+De seguida, construi um segundo serviço que devolve páginas HTML com a informação das pessoas e possui elementos para executar operações CRUD sobre os dados.
+O serviço foi definido na pasta [pessoas_serv](pessoas_serv/) suporta os mesmos pedidos:
 - GET /compositores
 - GET /compositores/Cid
 - GET /compositores/register
