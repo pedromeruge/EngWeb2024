@@ -1,0 +1,3 @@
+RECORDA:
+comandos para criar pessoasAPI "npx express-generator pessoasAPI"
+comando para criar pessoas_serv "npx express-generator --view=pug ex2"

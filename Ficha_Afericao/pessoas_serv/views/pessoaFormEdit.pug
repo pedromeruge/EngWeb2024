@@ -1,0 +1,100 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-purple
+            h2 Editar Pessoa
+    
+        form.w3-container(method="POST")
+            fieldset
+                legend Dados
+                
+                label Nome
+                input.w3-input.w3-round(type="text" name="nome" value=pessoa.nome)
+
+                label Idade
+                input.w3-input.w3-round(type="number" name="idade" value=pessoa.idade)
+
+                label Sexo
+                select.w3-select.w3-border(name="sexo")
+                    each option in ['Masculino', 'Feminino', 'Outro']
+                        if pessoa.sexo === option.toLowerCase()
+                            option(value=option.toLowerCase() selected)=option
+                        else
+                            option(value=option.toLowerCase())=option
+
+                label Morada
+                input.w3-input.w3-round(type="text" name="moradaCidade" placeholder="Cidade" value=pessoa.morada.cidade)
+                input.w3-input.w3-round(type="text" name="moradaDistrito" placeholder="Distrito" value=pessoa.morada.distrito)
+
+                label Documento de identificação
+                input.w3-input.w3-round(type="text" name="BI" placeholder="BI" value=pessoa.BI)
+                input.w3-input.w3-round(type="text" name="CC" placeholder="CC" value=pessoa.CC)
+
+                label Descrição
+                textarea.w3-input.w3-round(type="text" name="descrição" rows="2")= pessoa.descrição
+
+                label Profissão
+                input.w3-input.w3-round(type="text" name="profissao" value=pessoa.profissao)
+
+                label Partido Político
+                input.w3-input.w3-round(type="text" name="partidoNome" placeholder="Nome do partido" value=pessoa.partido_nome)
+                input.w3-input.w3-round(type="text" name="partidoAbbr" placeholder="Abreviatura do partido" value=pessoa.partido_abbr)
+
+                label Religião
+                input.w3-input.w3-round(type="text" name="religiao" placeholder="CR7" value=pessoa.religiao)
+
+                label Desportos
+                input.w3-input.w3-round(type="text" name="desportos" placeholder="Separados por vírgulas Ex: desporto1,desporto2,desporto3,..." value=pessoa.desportos.join(','))
+
+                label Animais
+                input.w3-input.w3-round(type="text" name="animais" placeholder="Separados por vírgulas Ex: Cão,gato,gão,..." value=pessoa.animais.join(','))
+
+                label Figuras Públicas Portuguesas
+                input.w3-input.w3-round(type="text" name="figura_publica_pt" placeholder="Separadas por vírgulas Ex: João,Joana,Joãona,..." value=pessoa.figura_publica_pt.join(','))
+
+                label Marca de Carro
+                input.w3-input.w3-round(type="text" name="marca_carro" value=pessoa.marca_carro)
+
+                label Destinos Favoritos
+                input.w3-input.w3-round(type="text" name="destinos_favoritos" placeholder="Separados por vírgulas Ex: Braga,Porto,Lisboa,..." value=pessoa.destinos_favoritos.join(','))
+
+                label Comida Favorita 
+                input.w3-input.w3-round(type="text" name="comidaFavorita" placeholder="Tremoços" value=pessoa.atributos.comida_favorita)
+                
+            fieldset 
+                legend Atributos
+
+                div 
+                    label Gosta de fumar 
+                    input(type="checkbox" name="fumador" checked=pessoa.atributos.fumador)
+                div 
+                    label Gosta de cinema 
+                    input(type="checkbox" name="gostaCinema" checked=pessoa.atributos.gosta_cinema)
+                div 
+                    label Gosta de viajar 
+                    input(type="checkbox" name="gostaViajar" checked=pessoa.atributos.gosta_viajar)
+                div 
+                    label Acorda cedo 
+                    input(type="checkbox" name="acordaCedo" checked=pessoa.atributos.acorda_cedo)
+                div 
+                    label Gosta de ler 
+                    input(type="checkbox" name="gostaLer" checked=pessoa.atributos.gosta_ler)
+                div 
+                    label Gosta de música 
+                    input(type="checkbox" name="gostaMusica" checked=pessoa.atributos.gosta_musica)
+                div 
+                    label Gosta de comer 
+                    input(type="checkbox" name="gostaComer" checked=pessoa.atributos.gosta_comer)
+                div 
+                    label Gosta de animais de estimação 
+                    input(type="checkbox" name="gostaAnimaisEstimacao" checked=pessoa.atributos.gosta_animais_estimacao)
+                div 
+                    label Gosta de dançar 
+                    input(type="checkbox" name="gostaDancar" checked=pessoa.atributos.gosta_dancar)
+
+            button.w3-btn.w3-purple.w3-section(type="submit") Confirmar
+
+        footer.w3-container.w3-purple
+            address Generated by EngWeb2024 in #{date} - 
+                a(href="/") [Voltar a pessoas]

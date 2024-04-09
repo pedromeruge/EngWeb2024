@@ -18,7 +18,7 @@ for pessoa in data["pessoas"]:
     response = requests.post(end_point, json=pessoa, headers=headers) # requests já serializa, n precisamos de fazer json.dumps()
 
     # Check the response status
-    if response.status_code == 2001:
+    if response.status_code == 201:
         print("New entry created successfully.")
     else:
         print("Failed to create new entry. Status code:", response.status_code)

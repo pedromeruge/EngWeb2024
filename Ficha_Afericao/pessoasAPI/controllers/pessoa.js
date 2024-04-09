@@ -3,7 +3,7 @@ var Pessoa = require("../models/pessoa")
 module.exports.list = () => { // query 
     return Pessoa
         .find()
-        .sort({_id:1}) // sort dos resultados devolvidos por id crescente
+        .sort({nome:1}) // sort dos resultados devolvidos por id crescente
         .exec()
 }
 
@@ -42,8 +42,8 @@ module.exports.insert = pessoa => {
     return Pessoa.create(pessoa) // catch do erro (se ocorrer) está no roteador
 }
 
-module.exports.updatePessoa = (pessoa_id, Pessoa) => {
-    return Pessoa.findOneAndUpdate({_id: pessoa_id}, Pessoa, {new: true})
+module.exports.updatePessoa = (pessoa_id, pessoa) => {
+    return Pessoa.findOneAndUpdate({_id: pessoa_id}, pessoa, {new: true})
 }
 
 module.exports.deletePessoaById = id => {

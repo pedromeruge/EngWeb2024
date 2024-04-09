@@ -1,0 +1,39 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h1 Lista de pessoas
+                a.add-button.w3-btn.w3-round.w3-red(href="/register") +   
+        
+        .w3-container
+            table.w3-table-all
+                tr
+                    th Id
+                    th Nome
+                    th Idade
+                    th Documento de identificação
+                    th Ações
+                each pessoa in data
+                    tr
+                        td= pessoa._id
+                        td 
+                            a(href= "/" + pessoa._id) #{pessoa.nome}
+                        td= pessoa.idade
+                        td
+                            if pessoa.BI 
+                                b BI: 
+                                span=pessoa.BI
+                            else if pessoa.CC
+                                b CC: 
+                                span=pessoa.CC 
+                            else 
+                                span="-"
+                        td 
+                            //- para adicionar "[]"", usar | -> trata texto a seguir como plain text, sem dar significado usual do pug ao caractér
+                            |[
+                            a(href="/edit/" + pessoa._id) Edit][
+                            a(href="/delete/" + pessoa._id) Delete]
+
+        footer.w3-container.w3-blue
+            address Gerado por EngWeb2024 em #{date}
